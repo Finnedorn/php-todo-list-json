@@ -13,7 +13,6 @@ createApp({
         axios
         .get(this.apiUrl)
         .then((resp) => {
-            console.log(resp.data);
             this.todoList = resp.data;
         });
     },
@@ -23,7 +22,6 @@ createApp({
         axios
         .post(this.apiUrl, data)
         .then((resp)=> {
-            console.log(resp.data);
             this.todoList = resp.data;
         });
         this.newTask = '';
@@ -34,13 +32,19 @@ createApp({
         axios
         .post(this.apiUrl, data)
         .then((resp)=> {
-            console.log(resp.data);
             this.todoList = resp.data;
         });
     },
-    // doneMarker(indice) {
-    //     const
-    // }
+    doneMarker(indice) {
+        const data = new FormData();
+        data.append("markTheTask", indice);
+        axios
+        .post(this.apiUrl, data)
+        .then((resp)=> {
+            console.log(resp.data);
+            this.todoList = resp.data;
+        });
+    }
   },
   mounted() {
     this.getList();

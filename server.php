@@ -25,6 +25,17 @@ if(isset($_POST['killTheTask'])) {
     file_put_contents("todo-list.json", json_encode($serverList));
 };
 
+if(isset($_POST['markTheTask'])) {
+    $taskmarker = $_POST['markTheTask'];
+    if($serverList[$taskmarker]['done'] === false) {
+        $serverList[$taskmarker]['done'] = true;
+    } else {
+        $serverList[$taskmarker]['done'] = false;
+    };
+    file_put_contents("todo-list.json", json_encode($serverList));
+};
+
+
 
 
 
