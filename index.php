@@ -23,8 +23,8 @@
                 </div>
                 <div class="my-3 d-flex justify-content-center">
                     <input type="text" class="form-control w-25" v-model="newTask" @keyup.enter="">
-                    <button class="btn btn-success mx-2" @click="">
-                        <i class="fa-solid fa-plus text-light "></i>
+                    <button class="btn btn-success mx-2" @click="taskAdder">
+                        <i class="fa-solid fa-plus text-light"></i>
                     </button>
                 </div>
             </header>
@@ -33,10 +33,13 @@
                     <ul class="list-group list-group-flush rounded-4" v-if="todoList.length > 0">
                         <li class="list-group-item list-group-item-action d-flex justify-content-between" 
                         v-for="(el, index) in todoList" :key="todoList.index">
-                            <div class="list-el">
+                            <div class="list-el" 
+                            :class="{'done' : el.done}"
+                            @click="doneMarker(index)"
+                            >
                                 {{el.task}}
                             </div>
-                            <i class="fa-solid fa-x list-el">
+                            <i class="fa-solid fa-x list-el" @click="taskDeleter(index)">
                             </i>
                         </li>
                     </ul>
