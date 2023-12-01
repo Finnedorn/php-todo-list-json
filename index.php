@@ -30,15 +30,13 @@
             </header>
             <main>
                 <div class="card p-5 rounded-4">
-                    <!-- <ul class="list-group list-group-flush rounded-4" v-if="toDoList.length > 0">
+                    <ul class="list-group list-group-flush rounded-4" v-if="todoList.length > 0">
                         <li class="list-group-item list-group-item-action d-flex justify-content-between" 
-                        v-for="(el, index) in toDoList" :key="toDoList.id">
-                            <div class="list-el"
-                            :class="{'done': el.done}"
-                            @click="doneMarker(index)">
+                        v-for="(el, index) in todoList" :key="todoList.index">
+                            <div class="list-el">
                                 {{el.task}}
                             </div>
-                            <i class="fa-solid fa-x list-el" @click="removeFromList(index)">
+                            <i class="fa-solid fa-x list-el">
                             </i>
                         </li>
                     </ul>
@@ -46,7 +44,7 @@
                         <h3>
                             Nessuna Task!
                         </h3>
-                    </div> -->
+                    </div>
                 </div>
             </main>
         </div>
