@@ -22,7 +22,7 @@
                     </h1>
                 </div>
                 <div class="my-3 d-flex justify-content-center">
-                    <input type="text" class="form-control w-25" v-model="newTask" @keyup.enter="">
+                    <input type="text" class="form-control w-25" v-model="newTask" @keyup.enter="taskAdder">
                     <button class="btn btn-success mx-2" @click="taskAdder">
                         <i class="fa-solid fa-plus text-light"></i>
                     </button>
