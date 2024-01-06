@@ -22,6 +22,7 @@
                     </h1>
                 </div>
                 <div class="my-3 d-flex justify-content-center">
+                    <!-- creo un form legato in v-model alla variabile newTask -->
                     <input type="text" class="form-control w-25" v-model="newTask" @keyup.enter="taskAdder">
                     <button class="btn btn-success mx-2" @click="taskAdder">
                         <i class="fa-solid fa-plus text-light"></i>
@@ -31,14 +32,18 @@
             <main>
                 <div class="card p-5 rounded-4">
                     <ul class="list-group list-group-flush rounded-4" v-if="todoList.length > 0">
+                        <!-- ciclo sugli elementi in todoList -->
                         <li class="list-group-item list-group-item-action d-flex justify-content-between" 
                         v-for="(el, index) in todoList" :key="todoList.index">
+                            <!-- creo una class in v-bind che mi marki le task sulla base del valore della loro key[done] -->
+                            <!-- al click inoltre si attiverà la funzione ch eregola il cambio del valore della stessa key -->
                             <div class="list-el" 
                             :class="{'done' : el.done}"
                             @click="doneMarker(index)"
                             >
                                 {{el.task}}
                             </div>
+                            <!-- se clicco sulla x si attiva la funzione taskDeleter -->
                             <i class="fa-solid fa-x list-el" @click="taskDeleter(index)">
                             </i>
                         </li>
